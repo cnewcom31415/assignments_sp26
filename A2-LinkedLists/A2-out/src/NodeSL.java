@@ -1,4 +1,6 @@
-  /** Nested class to keep track of nodes */
+package src;
+
+/** Nested class to keep track of nodes */
   public class NodeSL<T> {
       /** The data at the node */
       private T data;

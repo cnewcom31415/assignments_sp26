@@ -1,3 +1,5 @@
+package src;
+
 public interface NodeBasedOps<T> {
   /** 
    *  Accessor for head node

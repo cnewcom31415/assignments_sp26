@@ -1,3 +1,5 @@
+package src;
+
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -265,4 +267,153 @@ public class SLLTest {
                 IllegalStateException.class,
                 () -> list.removeAfter(null));
     }
+
+
+    //Claire's Tests
+
+    @Test
+    public void testAdd(){
+        SLL<String> list = new SLL<>();
+        list.add(0,"A");
+        assertEquals("[A]",list.toString());
+    }
+
+    @Test
+    public void testAddLonger(){
+        SLL<String> list = new SLL<>();
+        list.add(0,"A");
+        list.add(1,"B");
+        list.add(2,"C");
+        assertEquals("[A, B, C]",list.toString());
+    }
+
+    @Test
+    public void testAddLongerOutOfOrder(){
+        SLL<String> list = new SLL<>();
+        list.add(0,"A");
+        list.add(0,"B");
+        list.add(2,"C");
+        assertEquals("[B, A, C]",list.toString());
+    }
+
+    @Test (expected = IndexOutOfBoundsException.class)
+    public void testAddExceptionLow(){
+        SLL<String> list = new SLL<>();
+        list.add(-1,"A");
+    }
+
+    @Test (expected = IndexOutOfBoundsException.class)
+    public void testAddExceptionHigh(){
+        SLL<String> list = new SLL<>();
+        list.add(1,"A");
+    }
+
+    @Test
+    public void testRemove(){
+        SLL<String> list = new SLL<>();
+        list.add(0,"A");
+        list.remove(0);
+        assertEquals("[]",list.toString());
+    }
+
+    @Test
+    public void testRemoveMiddle(){
+        SLL<String> list = new SLL<>();
+        list.add(0,"A");
+        list.add(1,"B");
+        list.add(2,"C");
+        list.remove(1);
+        assertEquals("[A, C]",list.toString());
+    }
+
+    @Test
+    public void testRemoveStart(){
+        SLL<String> list = new SLL<>();
+        list.add(0,"A");
+        list.add(1,"B");
+        list.add(2,"C");
+        list.remove(0);
+        assertEquals("[B, C]",list.toString());
+    }
+
+    @Test
+    public void testRemoveEnd(){
+        SLL<String> list = new SLL<>();
+        list.add(0,"A");
+        list.add(1,"B");
+        list.add(2,"C");
+        list.remove(2);
+        assertEquals("[A, B]",list.toString());
+    }
+
+    @Test (expected = IndexOutOfBoundsException.class)
+    public void testRemoveExceptionLow(){
+        SLL<String> list = new SLL<>();
+        list.add(0,"A");
+        list.remove(-1);
+
+    }
+
+    @Test (expected = IndexOutOfBoundsException.class)
+    public void testRemoveExceptionHigh(){
+        SLL<String> list = new SLL<>();
+        list.add(0,"A");
+        list.remove(1);
+
+    }
+
+    @Test
+    public void testGet(){
+        SLL<String> list = new SLL<>();
+        list.add(0,"A");
+        assertEquals("A",list.get(0));
+    }
+
+    @Test (expected = IndexOutOfBoundsException.class)
+    public void testGetEmpty(){
+        SLL<String> list = new SLL<>();
+        list.get(0);
+    }
+
+    @Test (expected = IndexOutOfBoundsException.class)
+    public void testGetExceptionLow(){
+        SLL<String> list = new SLL<>();
+        list.add(0,"A");
+        list.get(-1);
+
+    }
+
+    @Test (expected = IndexOutOfBoundsException.class)
+    public void testGetExceptionHigh(){
+        SLL<String> list = new SLL<>();
+        list.add(0,"A");
+        list.get(1);
+
+    }
+
+    @Test
+    public void testSet(){
+        SLL<String> list = new SLL<>();
+        list.add(0,"A");
+        String returned = list.set(0,"B");
+        assertEquals("A",returned);
+        assertEquals("[B]", list.toString());
+    }
+
+    @Test (expected = IndexOutOfBoundsException.class)
+    public void testSetExceptionLow(){
+        SLL<String> list = new SLL<>();
+        list.add(0,"A");
+        String returned = list.set(-1,"B");
+
+    }
+
+    @Test (expected = IndexOutOfBoundsException.class)
+    public void testSetExceptionHigh(){
+        SLL<String> list = new SLL<>();
+        list.add(0,"A");
+        String returned = list.set(1,"B");
+
+    }
+
 }
