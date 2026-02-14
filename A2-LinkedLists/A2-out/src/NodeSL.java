@@ -29,7 +29,7 @@ package src;
         return next;
       }
 
-      /** @param d new next node */
+      /** @param next new next node */
       public void setNext(NodeSL<T> next) {
         this.next = next;
       }
