@@ -29,8 +29,12 @@ public class SLL<T> implements ListADT<T>,NodeBasedOps<T> {
 
     //STILL A STUB UPDATE THIS LATER
     public SLL(SLL<T> toCopy){
-        this.head = toCopy.getHead();
-        this.size = toCopy.size();
+
+        for(int i = toCopy.size()-1; i >=0; i--){
+            T value = toCopy.get(i);
+            this.addFirst(value); //this updates the head and size
+        }
+
     }
 
     //ListADT
@@ -166,48 +170,84 @@ public class SLL<T> implements ListADT<T>,NodeBasedOps<T> {
     //NodeBasedOps
     @Override
     public NodeSL<T> getHead() {
-
-        return null;
+        return this.head;
     }
 
     @Override
     public NodeSL<T> getTail() {
-
-        return null;
+        return this.nodeAt(size-1);
     }
 
     @Override
     public void addFirst(T v) {
-
+        this.add(0,v);
     }
 
     @Override
     public void addLast(T v) {
-
+        this.add(size, v);
     }
 
     @Override
     public T removeFirst() {
-
-        return null;
+        if(this.isEmpty()){
+            throw new IllegalStateException();
+        }
+        T value = this.remove(0);
+        return value;
     }
 
     @Override
     public T removeLast() {
-
-        return null;
+        if(this.isEmpty()){
+            throw new IllegalStateException();
+        }
+        T value = this.remove(size-1);
+        return value;
     }
 
+    /**
+     *  Inserts the given item after the specified node.
+     *  If here is null, insert at the head.
+     *  @param here node to insert after
+     *  @param v item to insert
+     */
     @Override
     public void addAfter(NodeSL<T> here, T v) {
-
+        if(here == null){
+            NodeSL<T> newHead = new NodeSL<>(v,this.head);
+            this.head = newHead;
+        } else {
+            NodeSL<T> next = here.getNext();
+            NodeSL<T> newNode = new NodeSL<>(v, next);
+            here.setNext(newNode);
+        }
+        size++;
     }
 
+    /**
+     *  Removes the node after the given position.
+     *  If here is null, remove the head node.
+     *  @param here marks position to remove after
+     *  @return item removed
+     */
     @Override
     public T removeAfter(NodeSL<T> here) {
-
-        return null;
+        if(this.isEmpty()){
+            throw new IllegalStateException();
+        }
+        T value;
+        if (here == null){
+            value = this.head.getData();
+            this.head = this.head.getNext();
+        } else {
+            value = here.getNext().getData();
+            here.setNext(here.getNext().getNext());
+        }
+        size--;
+        return value;
     }
+
 }
 
 

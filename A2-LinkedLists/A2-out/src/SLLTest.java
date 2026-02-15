@@ -182,7 +182,7 @@ public class SLLTest {
         s = verifySLL(list, abc);
         assertTrue("AB.addAfter(B,C)" + s, s.equals(""));
         list.addAfter(list.getHead().getNext(), "D");
-        s = verifySLL(list, new String[] { "A", "D", "B", "C" });
+        s = verifySLL(list, new String[] { "A", "D", "B", "C" });//I think this is in the wrong order
         assertTrue("ABC.addAfter(B,D)" + s, s.equals(""));
     }
 
