@@ -11,7 +11,7 @@ your work, please indicate the status of each item
 ## Grade-ability Check
 Please confirm the following minimum criteria are met:
 
-_____ Program compiles without errors 
+__Yes__ Program compiles without errors 
 
 _____ All required files included with submission (including basic readme info and completed checklist file) 
 
@@ -21,9 +21,9 @@ _____ README.md contains answers to any questions and your reflection on the ass
 
 ## Coding Points:
 
-_____ 1 pt: Appropriate class variables included (no `tail` instance variable)
+__Yes__ 1 pt: Appropriate class variables included (no `tail` instance variable)
 
-_____ 2 pt: Phase 1 methods implemented
+__Yes__ 2 pt: Phase 1 methods implemented
 
 _____ 1 pt: Passes all phase 1 tests
 

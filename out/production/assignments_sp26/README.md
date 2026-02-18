@@ -2,19 +2,19 @@
 
 ## Basic Information
 
-Your name:
+Your name: Claire Newcom
 
-Other students you worked with, including TAs:
+Other students you worked with, including TAs: None
 
-If anyone was particularly helpful, please give them a shout-out here: 
+If anyone was particularly helpful, please give them a shout-out here: None
 
 
 ## References
 
-Any references or resources used besides JavaDoc and course materials:
+Any references or resources used besides JavaDoc and course materials: None
 
 If you used generative AI, how did you use it? What role did it play in your learning?
-
+I did not use generative AI.
 
 ## Questions to Answer
 
